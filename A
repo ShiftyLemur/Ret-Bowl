@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Calculator</title>
+    <style>
+        body { margin: 0; background: #f0f0f0; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        #calc { background: #333; padding: 20px; border-radius: 10px; width: 300px; text-align: center; }
+        input { width: 100%; height: 60px; font-size: 30px; margin-bottom: 10px; text-align: right; }
+        button { width: 60px; height: 60px; margin: 5px; font-size: 20px; cursor: pointer; }
+        #game-box { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+<div id="calc">
+    <input type="text" id="screen" readonly placeholder="0">
+    <br>
+    <button onclick="add('7')">7</button><button onclick="add('8')">8</button><button onclick="add('9')">9</button>
+    <br>
+    <button onclick="add('4')">4</button><button onclick="add('5')">5</button><button onclick="add('6')">6</button>
+    <br>
+    <button onclick="add('1')">1</button><button onclick="add('2')">2</button><button onclick="add('3')">3</button>
+    <br>
+    <button onclick="add('0')">0</button><button onclick="run()" style="background:orange">=</button>
+</div>
+
+<div id="game-box">
+    <iframe id="frame" src=""></iframe>
+</div>
+
+<script>
+    function add(num) { document.getElementById('screen').value += num; }
+    function run() {
+        var val = document.getElementById('screen').value;
+        // ENTER 123 THEN PRESS = TO OPEN GAME
+        if(val === "123") {
+            document.getElementById('game-box').style.display = 'block';
+            document.getElementById('frame').src = 'https://game316277.konggames.com';
+        } else {
+            document.getElementById('screen').value = "Error";
+        }
+    }
+</script>
+
+</body>
+</html>
